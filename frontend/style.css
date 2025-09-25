@@ -1,0 +1,311 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #fffbf2; /* light theme background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Common container for login & signup */
+.signup-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  width: 350px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.signup-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Inputs */
+.signup-container input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.signup-container input:focus {
+  outline: none;
+  border-color: #ff7e00;
+  box-shadow: 0 0 5px rgba(255,126,0,0.5);
+}
+
+/* Buttons (used for login & signup) */
+.signup-btn {
+  width: 100%;
+  padding: 12px;
+  background: #ff7e00;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.signup-btn:hover {
+  background: #e56f00;
+}
+
+/* Redirect link text */
+.redirect-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.redirect-text a {
+  color: #ff7e00;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.redirect-text a:hover {
+  text-decoration: underline;
+}
+
+/* Message (error/success) */
+#message,
+#loginMessage {
+  margin-top: 10px;
+  font-size: 14px;
+  color: red;
+  font-weight: 500;
+  text-align: center;
+}
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #fffbf2; /* light background */
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: #fff;
+  padding: 15px 20px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  color: #ff7e00;
+}
+
+.logout-btn {
+  background: #ff7e00;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.logout-btn:hover {
+  background: #e56f00;
+}
+
+/* Sections */
+section {
+  padding: 30px 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+section h2 {
+  color: #ff7e00;
+  margin-bottom: 15px;
+  font-size: 22px;
+  border-bottom: 2px solid #ff7e00;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+section {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+/* User Details */
+.user-details p {
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+/* Wallet */
+.wallet-balance {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.add-money-btn {
+  background: #ff7e00;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.add-money-btn:hover {
+  background: #e56f00;
+}
+
+/* Expense Form */
+.expense-form {
+  margin-bottom: 20px;
+}
+.expense-form input {
+  width: 48%;
+  padding: 10px;
+  margin: 5px 1%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.expense-form button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #ff7e00;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.expense-form button:hover {
+  background: #e56f00;
+}
+
+/* Expense List */
+.expenses-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+.expenses-list li {
+  background: #fffbf2;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.expenses-list button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 8px;
+  color: #ff7e00;
+  font-weight: bold;
+}
+.expenses-list button:hover {
+  color: #e56f00;
+}
+
+/* Transactions */
+/* Transactions */
+.transactions-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+.transactions-list li {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+}
+
+/* Dot indicators */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+.dot.red {
+  background: #ff4d4d;
+}
+.dot.green {
+  background: #4caf50;
+}
+
+/* Info */
+.txn-info {
+  flex-grow: 1;
+}
+.txn-info strong {
+  display: block;
+  font-size: 15px;
+  color: #333;
+}
+.txn-info small {
+  color: #777;
+  font-size: 12px;
+}
+
+/* Amounts */
+.amount {
+  font-weight: bold;
+  font-size: 14px;
+}
+.amount.debit {
+  color: #ff4d4d;
+}
+.amount.credit {
+  color: #4caf50;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #222;
+  color: #f1f1f1;
+  padding: 10px;
+  margin-top: 30px;
+}
+footer span {
+  color: #ff7e00;
+}
+
