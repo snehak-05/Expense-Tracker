@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Expense Tracker</title>
+  <style>
+    /* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  /*background: #fffbf2; /* light background */
+  background: linear-gradient(135deg, #fff7ef, #ffe0c7);
+  color: #333;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+header {
+  background: #fff;
+  padding: 15px 20px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  color: #ff7e00;
+}
+
+.logout-btn {
+  background: #ff7e00;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.logout-btn:hover {
+  background: #e56f00;
+}
+
+/* Sections */
+section {
+  padding: 50px 40px;
+  margin: 40px auto;
+  max-width: 1100px;
+  background: #fffdfc;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+section h2 {
+  color: #ff7e00;
+  margin-bottom: 15px;
+  font-size: 28px;
+  border-bottom: 2px solid #ff7e00;
+  display: inline-block;
+  padding-bottom: 5px;
+  font-weight:800;
+}
+section {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+/* User Details */
+.user-details p {
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+/* Wallet */
+.wallet-balance {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.add-money-btn {
+  background: #ff7e00;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.add-money-btn:hover {
+  background: #e56f00;
+}
+
+/* Expense Form */
+.expense-form {
+  margin-bottom: 20px;
+}
+.expense-form input {
+  width: 48%;
+  padding: 10px;
+  margin: 5px 1%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.expense-form button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #ff7e00;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.expense-form button:hover {
+  background: #e56f00;
+}
+
+/* Expense List */
+.expenses-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+.expenses-list li {
+  background: #fffbf2;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 18px 20px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+}
+.expenses-list button {
+  background: #fff;          
+  border: 1px solid #ff7e00; 
+  cursor: pointer;
+  margin-left: 8px;
+  color: #ff7e00;           
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+.expenses-list button:hover {
+  background: #ff7e00;  
+  color: #fff;    
+}
+.expenses-list li span:last-child {
+  background: #ff7e00;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+/* Transactions */
+.transactions-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+.transactions-list li {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 126, 0, 0.2);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+}
+
+/* Dot indicators */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+.dot.red {
+  background: #ff4d4d;
+}
+.dot.green {
+  background: #4caf50;
+}
+
+/* Info */
+.txn-info {
+  flex-grow: 1;
+}
+.txn-info strong {
+  display: block;
+  font-size: 15px;
+  color: #333;
+}
+.txn-info small {
+  color: #777;
+  font-size: 12px;
+}
+
+/* Amounts */
+.amount {
+  font-weight: bold;
+  font-size: 14px;
+}
+.amount.debit {
+  color: #ff4d4d;
+}
+.amount.credit {
+  color: #4caf50;
+}
+
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #222;
+  color: #f1f1f1;
+  padding: 10px;
+  margin-top: 40px;
+}
+footer span {
+  color: #ff7e00;
+}
+
+  </style>
+  <link rel="stylesheet" href="#">
+</head>
+<body>
+  <header>
+    <h1>Expense Tracker</h1>
+    <button id="logoutBtn" class="logout-btn">Logout</button>
+  </header>
+
+  <!-- User Details -->
+  <section class="user-details">
+    <h2>My Details</h2>
+    <p><strong>Name:</strong> <span id="profile-name">Sneha</span></p>
+    <p><strong>Username:</strong> <span id="profile-username">snehaKKK</span></p>
+    <p><strong>Email:</strong> <span id="profile-email">sneha@example.com</span></p>
+    <p><strong>Phone:</strong> <span id="profile-phone">9756843321</span></p>
+  </section>
+
+  <!-- Wallet Section -->
+  <section class="wallet">
+    <h2>Wallet</h2>
+    <p class="wallet-balance">Balance: ₹<span id="profile-wallet">1500</span></p>
+    <button class="add-money-btn">+ Add Money</button>
+  </section>
+
+  <!-- Expenses Section -->
+  <section class="expenses">
+    <h2>Expenses</h2>
+    <form id="expenseForm" class="expense-form">
+      <input type="text" id="description" placeholder="Description" required>
+      <input type="number" id="amount" placeholder="Amount" required>
+      <button type="submit">Add Expense</button>
+    </form>
+    <ul id="expenses" class="expenses-list">
+      <!-- Expenses will load here -->
+       <!-- Default dummy data -->
+      <li>
+        <span>Groceries - ₹500</span>
+        <span>
+          <button>Edit</button>
+          <button>Delete</button>
+        </span>
+      </li>
+      <li>
+        <span>Petrol - ₹1200</span>
+        <span>
+          <button>Edit</button>
+          <button>Delete</button>
+        </span>
+      </li>
+      <li>
+        <span>Netflix Subscription - ₹499</span>
+        <span>
+          <button>Edit</button>
+          <button>Delete</button>
+        </span>
+      </li>
+      <li>
+        <span>Chai - ₹50</span>
+        <span>
+          <button>Edit</button>
+          <button>Delete</button>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Transactions Section -->
+  <section class="transactions">
+    <h2>Transaction History</h2>
+    <ul id="transactions" class="transactions-list">
+      <!-- Transactions will load here -->
+       <li>
+      <span class="dot red"></span>
+      <div class="txn-info">
+        <strong>Daily Savings</strong>
+        <small>September 6, 2025 • 12:21 PM</small>
+      </div>
+      <span class="amount debit">- ₹1500.00</span>
+    </li>
+    <li>
+      <span class="dot red"></span>
+      <div class="txn-info">
+        <strong>Housekeeping</strong>
+        <small>September 3, 2025 • 04:20 PM</small>
+      </div>
+      <span class="amount debit">- ₹5000.00</span>
+    </li>
+    <li>
+      <span class="dot red"></span>
+      <div class="txn-info">
+        <strong>Gadgets</strong>
+        <small>September 2, 2025 • 02:30 PM</small>
+      </div>
+      <span class="amount debit">- ₹172000.00</span>
+    </li>
+    <li>
+      <span class="dot green"></span>
+      <div class="txn-info">
+        <strong>Project Bonus</strong>
+        <small>September 1, 2025 • 11:30 AM</small>
+      </div>
+      <span class="amount credit">+ ₹5000.00</span>
+    </li>
+    <li>
+      <span class="dot red"></span>
+      <div class="txn-info">
+        <strong>Snacks</strong>
+        <small>August 30, 2025 • 08:15 PM</small>
+      </div>
+      <span class="amount debit">- ₹200.00</span>
+    </li>
+    <li>
+      <span class="dot green"></span>
+      <div class="txn-info">
+        <strong>Salary Credit</strong>
+        <small>August 28, 2025 • 10:00 AM</small>
+      </div>
+      <span class="amount credit">+ ₹25000.00</span>
+    </li>
+    <li>
+      <span class="dot red"></span>
+      <div class="txn-info">
+        <strong>Electricity Bill</strong>
+        <small>August 25, 2025 • 06:45 PM</small>
+      </div>
+      <span class="amount debit">- ₹1200.00</span>
+    </li>
+    <li>
+      <span class="dot red"></span>
+      <div class="txn-info">
+        <strong>Movie Night</strong>
+        <small>August 24, 2025 • 09:30 PM</small>
+      </div>
+      <span class="amount debit">- ₹600.00</span>
+    </li>
+    </ul>
+  </section>
+
+  <footer>
+    &copy; 2025 <span>Expense Tracker</span>. All Rights Reserved.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
